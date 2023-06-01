@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>Pixelscoding.$(MSBuildProjectName)</AssemblyName>
+        <RootNamespace>Pixelscoding.$(MSBuildProjectName)</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>Pixelscoding.$(MSBuildProjectName)</PackageId>
+        <Authors>Pixelscoding</Authors>
+        <Description>Object read/write by path</Description>
+        <Company>Pixelscoding</Company>
+        <Product>Pixelscoding.$(MSBuildProjectName)</Product>
+        <Version>1.0.0</Version>
+        <Copyright>© 2023 Pixelscoding. All Rights Reserved</Copyright>
+        <PackageProjectUrl>https://www.pixelscoding.com/</PackageProjectUrl>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>nuget.snk</AssemblyOriginatorKeyFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <LangVersion>10.0</LangVersion>
+        <PackageIcon>Items\logo.png</PackageIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Update="Items\logo.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+</Project>
