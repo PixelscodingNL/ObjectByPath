@@ -238,15 +238,22 @@ public static class PathReflector
 					if (propertyType == valueType)
 					{
 						propertyInfo.SetValue(currentTarget, value);
+						return;
 					}
-					else
-					{
-						var convertedValue = Convert.ChangeType(value, propertyType);
 
-						if (convertedValue != null)
-						{
-							propertyInfo.SetValue(currentTarget, convertedValue);
-						}
+					// Parse enums
+					if (propertyType.IsEnum && valueType == typeof(string))
+					{
+						var parsed = Enum.Parse(propertyType, value.ToString());
+						propertyInfo.SetValue(currentTarget, parsed);
+						return;
+					}
+
+					var convertedValue = Convert.ChangeType(value, propertyType);
+
+					if (convertedValue != null)
+					{
+						propertyInfo.SetValue(currentTarget, convertedValue);
 					}
 				}
 			}
