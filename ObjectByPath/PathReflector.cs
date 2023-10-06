@@ -117,8 +117,23 @@ public static class PathReflector
 	/// <param name="path"> Property path on the <paramref name="target" /> that should be set with the <paramref name="value" />.</param>
 	/// <param name="value"> Object to set on the property specified in the <paramref name="path" />.</param>
 	/// <param name="trySet"> When true, try to set value, if property does not exist then do nothing. If false an exception will be thrown. </param>
-	public static void Set<TObject>(TObject target, string path, object value, bool trySet = false)
+	public static void Set<TObject>(TObject target, string path, object? value, bool trySet = false)
 	{
+		if (target == null)
+		{
+			throw new ArgumentNullException(nameof(target));
+		}
+
+		if (string.IsNullOrWhiteSpace(path))
+		{
+			throw new ArgumentException("Value cannot be null or whitespace.", nameof(path));
+		}
+		
+		if (value is null)
+		{
+			return;
+		}
+
 		object currentTarget = target;
 		var pathElements = path.Split('.');
 		Expression instance = Expression.Parameter(typeof(TObject));

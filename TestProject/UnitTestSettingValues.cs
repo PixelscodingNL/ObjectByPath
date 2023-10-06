@@ -32,6 +32,15 @@ public class UnitTestSettingValues
 
 		Assert.True(testClass.IsTest);
 	}
+	
+	[Fact]
+	public void TestNullableBoolSet()
+	{
+		var testClass = new TestingClass();
+		PathReflector.Set(testClass, "IsNullableTest", null);
+
+		Assert.True(testClass.IsNullableTest is null);
+	}
 
 	[Fact]
 	public void TestSortingKeynames()
