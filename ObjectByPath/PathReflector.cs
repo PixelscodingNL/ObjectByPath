@@ -249,6 +249,24 @@ public static class PathReflector
 						return;
 					}
 
+					// Parse bool
+					if (propertyType == typeof(bool))
+					{
+						if (valueType == typeof(int))
+						{
+							var parsed = Convert.ToInt32(value);
+							propertyInfo.SetValue(currentTarget, parsed == 1);
+							return;
+						}
+						if (valueType == typeof(string))
+						{
+							var parsed = value.ToString()?.ToLower();
+							var boolValue = parsed is "1" or "true";
+							propertyInfo.SetValue(currentTarget, boolValue);
+							return;
+						}
+					}
+
 					var convertedValue = Convert.ChangeType(value, propertyType);
 
 					if (convertedValue != null)

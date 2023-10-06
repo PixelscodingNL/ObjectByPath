@@ -5,21 +5,31 @@ namespace TestProject;
 public class UnitTest
 {
 	[Fact]
-	public void Test()
+	public void TestEnumSet()
 	{
 		var testClass = new TestClass();
 		PathReflector.Set(testClass, "EnumValue", "Maybe");
 		
-		Assert.True(testClass.EnumValue == TestEnum.Maybe);
+		Assert.True(testClass.EnumValue == MaybeEnum.Maybe);
+	}
+
+	[Fact]
+	public void TestBoolSet()
+	{
+		var testClass = new TestClass();
+		PathReflector.Set(testClass, "IsTest", "1");
+
+		Assert.True(testClass.IsTest);
 	}
 }
 
 public class TestClass
 {
-	public TestEnum EnumValue { get; set; }
+	public MaybeEnum EnumValue { get; set; }
+	public bool IsTest { get; set; }
 }
 
-public enum TestEnum
+public enum MaybeEnum
 {
 	Yes,
 	No,
