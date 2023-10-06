@@ -11,7 +11,7 @@
         <Description>Object read/write by path</Description>
         <Company>Pixelscoding</Company>
         <Product>Pixelscoding.$(MSBuildProjectName)</Product>
-        <Version>1.0.2</Version>
+        <Version>1.0.3</Version>
         <Copyright>© 2023 Pixelscoding. All Rights Reserved</Copyright>
         <PackageProjectUrl>https://www.pixelscoding.com/</PackageProjectUrl>
         <SignAssembly>true</SignAssembly>
