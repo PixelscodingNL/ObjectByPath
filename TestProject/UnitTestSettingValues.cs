@@ -64,7 +64,7 @@ public class UnitTestSettingValues
 		var counter = total;
 		foreach (var kvp in dict)
 		{
-			_testOutputHelper.WriteLine($"{kvp.Key}: {kvp.Value}");
+			_testOutputHelper.WriteLine($"{kvp.Key}: {kvp.Value}, checking if Value ends with {counter}.");
 			Assert.True(kvp.Value.ToString()!.EndsWith(counter.ToString()));
 			counter--;
 		}
