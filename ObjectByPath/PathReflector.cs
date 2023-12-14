@@ -1,4 +1,6 @@
-﻿using System.Linq.Expressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
@@ -7,34 +9,43 @@ namespace Pixelscoding.ObjectByPath;
 public static class PathReflector
 {
 	/// <summary>
-	///     Get the value of the target specified by the property path converted to the <typeparamref name="TResult" /> type.
+	///     Get the value of the target specified by the property path converted to the <typeparamref name="TResult" /> type. Defaults with Invariant culture.
 	/// </summary>
 	/// <typeparam name="TResult"> Type of the result value.</typeparam>
 	/// <param name="target"> Object to set properties on.</param>
 	/// <param name="path"> Property path on the <paramref name="target" /> that should be set with the value.</param>
 	/// <returns> Value of the property.</returns>
-	public static TResult Get<TResult>(object target, string path)
+	public static TResult Get<TResult>(object target, string path) => Get<TResult>(target, path, CultureInfo.InvariantCulture);
+	
+	/// <summary>
+	///     Get the value of the target specified by the property path converted to the <typeparamref name="TResult" /> type.
+	/// </summary>
+	/// <typeparam name="TResult"> Type of the result value.</typeparam>
+	/// <param name="target"> Object to set properties on.</param>
+	/// <param name="path"> Property path on the <paramref name="target" /> that should be set with the value.</param>
+	/// <param name="formatProvider">Format provider, for providing culture info.</param>
+	/// <returns> Value of the property.</returns>
+	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+	public static TResult Get<TResult>(object target, string path, IFormatProvider formatProvider)
 	{
 		var value = Get(target, path);
 
-		if (value != null)
+		if (value is null)
+			return default;
+
+		var valueType = value.GetType();
+		var resultType = typeof(TResult);
+
+		if (value is not Array)
 		{
-			var valueType = value.GetType();
-			var resultType = typeof(TResult);
-
-			if (!(value is Array))
+			// Verify that the value is assignable to the property.
+			if (valueType != resultType)
 			{
-				// Verify that the value is assignable to the property.
-				if (valueType != resultType)
-				{
-					value = Convert.ChangeType(value, resultType);
-				}
+				value = Convert.ChangeType(value, resultType, formatProvider);
 			}
-
-			return (TResult)value;
 		}
 
-		return default;
+		return (TResult)value;
 	}
 
 	/// <summary>
@@ -43,7 +54,7 @@ public static class PathReflector
 	/// <param name="target"> Object to set properties on.</param>
 	/// <param name="path"> Property path on the <paramref name="target" /> that should be set with the <paramref name="value" />.</param>
 	/// <returns> Value of the property.</returns>
-	public static object Get(object target, string path)
+	private static object Get(object target, string path)
 	{
 		var currentTarget = target;
 		var pathElements = path.Split('.');
@@ -128,7 +139,7 @@ public static class PathReflector
 		{
 			throw new ArgumentException("Value cannot be null or whitespace.", nameof(path));
 		}
-		
+
 		if (value is null)
 		{
 			return;
@@ -273,6 +284,7 @@ public static class PathReflector
 							propertyInfo.SetValue(currentTarget, parsed == 1);
 							return;
 						}
+
 						if (valueType == typeof(string))
 						{
 							var parsed = value.ToString()?.ToLower();
