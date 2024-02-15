@@ -2,7 +2,6 @@
 using Pixelscoding.ObjectByPath.Extensions;
 using TestProject.Classes;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace TestProject;
 
@@ -59,9 +58,7 @@ public class UnitTestSettingValues
 		};
 
 		var dict = dictionary.SortDictionaryDescendingKeynames();
-		var total = dict.Count;
-
-		var counter = total;
+		var counter = dict.Count;
 		foreach (var kvp in dict)
 		{
 			Assert.True(kvp.Value == counter);
