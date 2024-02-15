@@ -47,22 +47,22 @@ public class UnitTestSettingValues
 	{
 		Dictionary<string, object> dictionary = new Dictionary<string, object>
 		{
-			{ "subpolis[0].mr[0].bestuurder[1].geboortedatum", 2 },
-			{ "subpolis[1].mr[1].bestuurder[3].geboortedatum", 16 },
-			{ "subpolis[0].mr[1].bestuurder[3].geboortedatum", 8 },
-			{ "subpolis[0].mr[1].bestuurder[0].geboortedatum", 5 },
-			{ "subpolis[1].mr[0].bestuurder[3].geboortedatum", 12 },
-			{ "subpolis[0].mr[0].bestuurder[2].geboortedatum", 3 },
-			{ "subpolis[1].mr[1].bestuurder[0].geboortedatum", 13 },
-			{ "subpolis[0].mr[1].bestuurder[1].geboortedatum", 6 },
-			{ "subpolis[1].mr[0].bestuurder[0].geboortedatum", 9 },
-			{ "subpolis[1].mr[1].bestuurder[2].geboortedatum", 15 },
-			{ "subpolis[0].mr[0].bestuurder[0].geboortedatum", 1 },
-			{ "subpolis[0].mr[0].bestuurder[3].geboortedatum", 4 },
-			{ "subpolis[1].mr[1].bestuurder[1].geboortedatum", 14 },
-			{ "subpolis[1].mr[0].bestuurder[1].geboortedatum", 10 },
-			{ "subpolis[0].mr[1].bestuurder[2].geboortedatum", 7 },
-			{ "subpolis[1].mr[0].bestuurder[2].geboortedatum", 11 }
+			{ "subpolis[0].mr[0].bestuurder[1].test", 2 },
+			{ "subpolis[1].mr[1].bestuurder[3].test", 16 },
+			{ "subpolis[0].mr[1].bestuurder[3].test", 8 },
+			{ "subpolis[0].mr[1].bestuurder[0].test", 5 },
+			{ "subpolis[1].mr[0].bestuurder[3].test", 12 },
+			{ "subpolis[0].mr[0].bestuurder[2].test", 3 },
+			{ "subpolis[1].mr[1].bestuurder[0].test", 13 },
+			{ "subpolis[0].mr[1].bestuurder[1].test", 6 },
+			{ "subpolis[1].mr[0].bestuurder[0].test", 9 },
+			{ "subpolis[1].mr[1].bestuurder[2].test", 15 },
+			{ "subpolis[0].mr[0].bestuurder[0].test", 1 },
+			{ "subpolis[0].mr[0].bestuurder[3].test", 4 },
+			{ "subpolis[1].mr[1].bestuurder[1].test", 14 },
+			{ "subpolis[1].mr[0].bestuurder[1].test", 10 },
+			{ "subpolis[0].mr[1].bestuurder[2].test", 7 },
+			{ "subpolis[1].mr[0].bestuurder[2].test", 11 }
 		};
 
 		var dict = dictionary.SortDictionaryDescendingKeynames();
