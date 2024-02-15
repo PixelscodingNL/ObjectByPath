@@ -38,7 +38,7 @@ public class UnitTestSettingValues
 	[Fact]
 	public void TestSortingKeynames()
 	{
-		Dictionary<string, object> dictionary = new Dictionary<string, object>
+		Dictionary<string, int> dictionary = new Dictionary<string, int>
 		{
 			{ "subpolis[0].mr[0].bestuurder[1].test", 2 },
 			{ "subpolis[1].mr[1].bestuurder[3].test", 16 },
@@ -64,7 +64,7 @@ public class UnitTestSettingValues
 		var counter = total;
 		foreach (var kvp in dict)
 		{
-			Assert.True((int)kvp.Value == counter);
+			Assert.True(kvp.Value == counter);
 			counter--;
 		}
 	}
