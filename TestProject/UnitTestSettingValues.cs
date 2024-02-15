@@ -8,13 +8,6 @@ namespace TestProject;
 
 public class UnitTestSettingValues
 {
-	private readonly ITestOutputHelper _testOutputHelper;
-
-	public UnitTestSettingValues(ITestOutputHelper testOutputHelper)
-	{
-		_testOutputHelper = testOutputHelper;
-	}
-
 	[Fact]
 	public void TestEnumSet()
 	{
@@ -67,13 +60,10 @@ public class UnitTestSettingValues
 
 		var dict = dictionary.SortDictionaryDescendingKeynames();
 		var total = dict.Count;
-		
-		_testOutputHelper.WriteLine($"Total in collection: {total}");
 
 		var counter = total;
 		foreach (var kvp in dict)
 		{
-			_testOutputHelper.WriteLine($"{kvp.Key}: {kvp.Value}, checking to be value {counter}.");
 			Assert.True((int)kvp.Value == counter);
 			counter--;
 		}
