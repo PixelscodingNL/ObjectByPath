@@ -2,7 +2,8 @@
 
 public enum MaybeEnum
 {
-	Yes,
-	No,
-	Maybe
+	Unknown = 0,
+	Yes = 1,
+	No = 2,
+	Maybe = 3
 }

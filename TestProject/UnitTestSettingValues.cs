@@ -17,6 +17,18 @@ public class UnitTestSettingValues
 	}
 
 	[Fact]
+	public void TestEnumGet()
+	{
+		var testClass = new TestingClass
+		{
+			EnumValue = MaybeEnum.Maybe
+		};
+		var enumValue = PathReflector.Get<MaybeEnum>(testClass, "EnumValue");
+
+		Assert.True(enumValue is MaybeEnum.Maybe);
+	}
+
+	[Fact]
 	public void TestBoolSet()
 	{
 		var testClass = new TestingClass();
