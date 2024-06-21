@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AssemblyName>Pixelscoding.$(MSBuildProjectName)</AssemblyName>
@@ -11,7 +11,7 @@
         <Description>Object read/write by path</Description>
         <Company>Pixelscoding</Company>
         <Product>Pixelscoding.$(MSBuildProjectName)</Product>
-        <Version>1.0.5</Version>
+        <Version>1.0.6</Version>
         <Copyright>© 2024 Pixelscoding. All Rights Reserved</Copyright>
         <PackageProjectUrl>https://www.pixelscoding.com/</PackageProjectUrl>
         <SignAssembly>true</SignAssembly>
