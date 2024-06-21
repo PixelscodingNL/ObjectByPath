@@ -188,7 +188,7 @@ public static class PathReflector
 					instance = Expression.ArrayIndex(instance, Expression.Constant(index));
 
 					// Initialize the array indexes that are null.
-					if (!(currentTarget is Array array))
+					if (currentTarget is not Array array)
 					{
 						continue;
 					}
