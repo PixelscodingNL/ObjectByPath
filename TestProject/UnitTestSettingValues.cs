@@ -51,22 +51,22 @@ public class UnitTestSettingValues
 	{
 		Dictionary<string, int> dictionary = new Dictionary<string, int>
 		{
-			{ "subpolis[0].mr[0].bestuurder[1].test", 2 },
-			{ "subpolis[1].mr[1].bestuurder[3].test", 16 },
-			{ "subpolis[0].mr[1].bestuurder[3].test", 8 },
-			{ "subpolis[0].mr[1].bestuurder[0].test", 5 },
-			{ "subpolis[1].mr[0].bestuurder[3].test", 12 },
-			{ "subpolis[0].mr[0].bestuurder[2].test", 3 },
-			{ "subpolis[1].mr[1].bestuurder[0].test", 13 },
-			{ "subpolis[0].mr[1].bestuurder[1].test", 6 },
-			{ "subpolis[1].mr[0].bestuurder[0].test", 9 },
-			{ "subpolis[1].mr[1].bestuurder[2].test", 15 },
-			{ "subpolis[0].mr[0].bestuurder[0].test", 1 },
-			{ "subpolis[0].mr[0].bestuurder[3].test", 4 },
-			{ "subpolis[1].mr[1].bestuurder[1].test", 14 },
-			{ "subpolis[1].mr[0].bestuurder[1].test", 10 },
-			{ "subpolis[0].mr[1].bestuurder[2].test", 7 },
-			{ "subpolis[1].mr[0].bestuurder[2].test", 11 }
+			{ "object[0].test[0].collection[1].property", 2 },
+			{ "object[1].test[1].collection[3].property", 16 },
+			{ "object[0].test[1].collection[3].property", 8 },
+			{ "object[0].test[1].collection[0].property", 5 },
+			{ "object[1].test[0].collection[3].property", 12 },
+			{ "object[0].test[0].collection[2].property", 3 },
+			{ "object[1].test[1].collection[0].property", 13 },
+			{ "object[0].test[1].collection[1].property", 6 },
+			{ "object[1].test[0].collection[0].property", 9 },
+			{ "object[1].test[1].collection[2].property", 15 },
+			{ "object[0].test[0].collection[0].property", 1 },
+			{ "object[0].test[0].collection[3].property", 4 },
+			{ "object[1].test[1].collection[1].property", 14 },
+			{ "object[1].test[0].collection[1].property", 10 },
+			{ "object[0].test[1].collection[2].property", 7 },
+			{ "object[1].test[0].collection[2].property", 11 }
 		};
 
 		var dict = dictionary.SortDictionaryDescendingKeynames();
