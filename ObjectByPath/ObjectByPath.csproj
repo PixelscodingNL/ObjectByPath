@@ -11,8 +11,8 @@
         <Description>Object read/write by path</Description>
         <Company>Pixelscoding</Company>
         <Product>Pixelscoding.$(MSBuildProjectName)</Product>
-        <Version>1.0.4</Version>
-        <Copyright>© 2023 Pixelscoding. All Rights Reserved</Copyright>
+        <Version>1.0.5</Version>
+        <Copyright>© 2024 Pixelscoding. All Rights Reserved</Copyright>
         <PackageProjectUrl>https://www.pixelscoding.com/</PackageProjectUrl>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>nuget.snk</AssemblyOriginatorKeyFile>

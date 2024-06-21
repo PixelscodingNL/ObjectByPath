@@ -15,7 +15,7 @@ public static class PathReflector
 	/// <param name="target"> Object to set properties on.</param>
 	/// <param name="path"> Property path on the <paramref name="target" /> that should be set with the value.</param>
 	/// <returns> Value of the property.</returns>
-	public static TResult Get<TResult>(object target, string path) => Get<TResult>(target, path, CultureInfo.InvariantCulture);
+	public static TResult? Get<TResult>(object target, string path) => Get<TResult?>(target, path, CultureInfo.InvariantCulture);
 	
 	/// <summary>
 	///     Get the value of the target specified by the property path converted to the <typeparamref name="TResult" /> type.
@@ -26,7 +26,7 @@ public static class PathReflector
 	/// <param name="formatProvider">Format provider, for providing culture info.</param>
 	/// <returns> Value of the property.</returns>
 	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
-	public static TResult Get<TResult>(object target, string path, IFormatProvider formatProvider)
+	public static TResult? Get<TResult>(object target, string path, IFormatProvider formatProvider)
 	{
 		var value = Get(target, path);
 
