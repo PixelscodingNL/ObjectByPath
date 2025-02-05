@@ -38,6 +38,16 @@ public class UnitTestSettingValues
 	}
 	
 	[Fact]
+	public void TestListSet()
+	{
+		var testClass = new Test();
+		PathReflector.Set(testClass, "items[1].name", "Test");
+		PathReflector.Set(testClass, "items[0].name", "Test2");
+
+		Assert.True(testClass.Items.Length == 2);
+	}
+	
+	[Fact]
 	public void TestNullableBoolSet()
 	{
 		var testClass = new TestingClass();

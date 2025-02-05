@@ -206,7 +206,7 @@ public static class PathReflector
 			}
 			else
 			{
-				var pathInfo = instance.Type.GetProperty(pathElement);
+				var pathInfo = instance.Type.GetProperty(pathElement, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
 				if (pathInfo is null)
 				{
 					if (trySet)
