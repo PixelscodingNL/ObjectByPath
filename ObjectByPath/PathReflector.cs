@@ -31,7 +31,9 @@ public static class PathReflector
 		var value = Get(target, path);
 
 		if (value is null)
+		{
 			return default;
+		}
 
 		var valueType = value.GetType();
 		var resultType = typeof(TResult);
@@ -77,21 +79,15 @@ public static class PathReflector
 					// Get the array property as a expression.
 					instance = Expression.Property(instance, pathElement);
 
-					if (instance is MemberExpression memberExpression)
+					if (instance is MemberExpression { Member: PropertyInfo { CanRead: true } propertyInfo })
 					{
-						if (memberExpression.Member is PropertyInfo propertyInfo)
-						{
-							if (propertyInfo.CanRead)
-							{
-								currentTarget = propertyInfo.GetValue(currentTarget);
-							}
-						}
+						currentTarget = propertyInfo.GetValue(currentTarget);
 					}
 
 					// Get the array property as a expression that can be used to access the array.
 					instance = Expression.ArrayIndex(instance, Expression.Constant(index));
 
-					if (!(currentTarget is Array array))
+					if (currentTarget is not Array array)
 					{
 						continue;
 					}
@@ -104,15 +100,9 @@ public static class PathReflector
 				instance = Expression.Property(instance, pathElement);
 
 				// Try to find the property on the target.
-				if (instance is MemberExpression memberExpression)
+				if (instance is MemberExpression { Member: PropertyInfo { CanRead: true } propertyInfo })
 				{
-					if (memberExpression.Member is PropertyInfo propertyInfo)
-					{
-						if (propertyInfo.CanRead)
-						{
-							currentTarget = propertyInfo.GetValue(currentTarget);
-						}
-					}
+					currentTarget = propertyInfo.GetValue(currentTarget);
 				}
 			}
 		}
