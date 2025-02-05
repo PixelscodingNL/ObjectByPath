@@ -11,7 +11,7 @@ public class UnitTestSettingValues
 	public void TestEnumSet()
 	{
 		var testClass = new TestingClass();
-		PathReflector.Set(testClass, "EnumValue", "Maybe");
+		PathReflector.Set(testClass, "EnumValue", "maybe");
 		
 		Assert.True(testClass.EnumValue is MaybeEnum.Maybe);
 	}
@@ -38,13 +38,15 @@ public class UnitTestSettingValues
 	}
 	
 	[Fact]
-	public void TestListSet()
+	public void TestArraySet()
 	{
 		var testClass = new Test();
 		PathReflector.Set(testClass, "items[1].name", "Test");
 		PathReflector.Set(testClass, "items[0].name", "Test2");
 
 		Assert.True(testClass.Items.Length == 2);
+		Assert.True(testClass.Items[1].Name == "Test");
+		Assert.True(testClass.Items[0].Name == "Test2");
 	}
 	
 	[Fact]

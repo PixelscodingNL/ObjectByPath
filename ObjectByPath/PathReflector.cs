@@ -270,7 +270,7 @@ public static class PathReflector
 					// Parse enums
 					if (propertyType.IsEnum && valueType == typeof(string))
 					{
-						var parsed = Enum.Parse(propertyType, value.ToString());
+						var parsed = Enum.Parse(propertyType, value.ToString(), true);
 						propertyInfo.SetValue(currentTarget, parsed);
 						return;
 					}
