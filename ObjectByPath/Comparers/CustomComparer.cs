@@ -17,8 +17,8 @@ internal class CustomComparer : IComparer<string>
 
 			if (xIndex != -1 && yIndex != -1)
 			{
-				var xSubPart = xPart.Substring(0, xIndex);
-				var ySubPart = yPart.Substring(0, yIndex);
+				var xSubPart = xPart[..xIndex];
+				var ySubPart = yPart[..yIndex];
 
 				int result = string.Compare(xSubPart, ySubPart, StringComparison.InvariantCultureIgnoreCase);
 				if (result != 0)
