@@ -15,8 +15,11 @@ public static class PathReflector
 	/// <param name="target"> Object to set properties on.</param>
 	/// <param name="path"> Property path on the <paramref name="target" /> that should be set with the value.</param>
 	/// <returns> Value of the property.</returns>
-	public static TResult? Get<TResult>(object target, string path) => Get<TResult?>(target, path, CultureInfo.InvariantCulture);
-	
+	public static TResult? Get<TResult>(object target, string path)
+	{
+		return Get<TResult?>(target, path, CultureInfo.InvariantCulture);
+	}
+
 	/// <summary>
 	///     Get the value of the target specified by the property path converted to the <typeparamref name="TResult" /> type.
 	/// </summary>
@@ -325,6 +328,6 @@ public static class PathReflector
 		var index = pathElement.Substring(pathElement.IndexOf('['));
 		index = Regex.Match(index, @"\d+", RegexOptions.Compiled)?.Value;
 
-		return !string.IsNullOrWhiteSpace(index) ? Convert.ToInt32(index) : default(int?);
+		return !string.IsNullOrWhiteSpace(index) ? Convert.ToInt32(index) : null;
 	}
 }
