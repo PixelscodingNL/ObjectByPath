@@ -59,7 +59,7 @@ public static class PathReflector
 	/// <param name="target"> Object to set properties on.</param>
 	/// <param name="path"> Property path on the <paramref name="target" /> that should be set with the <paramref name="value" />.</param>
 	/// <returns> Value of the property.</returns>
-	private static object Get(object target, string path)
+	private static object? Get(object target, string path)
 	{
 		var currentTarget = target;
 		var pathElements = path.Split('.');
